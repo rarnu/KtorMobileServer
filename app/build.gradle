@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion 28
+
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    packagingOptions {
+        pickFirst 'META-INF/*'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.rarnu:android-jvm:0.6.0"
+    implementation "io.ktor:ktor:$ktor_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+}
+
+androidExtensions {
+    experimental = true
+}
