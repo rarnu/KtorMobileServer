@@ -22,6 +22,12 @@ dependencies {
     implementation "com.rarnu:android-jvm:0.6.0"
     implementation "io.ktor:ktor:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "io.ktor:ktor-websockets:$ktor_version"
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-server-host-common:$ktor_version"
+    implementation "io.ktor:ktor-server-sessions:$ktor_version"
+    implementation "io.ktor:ktor-client-okhttp:$ktor_version"
+    implementation "mysql:mysql-connector-java:8.0.15"
 }
 
 androidExtensions {

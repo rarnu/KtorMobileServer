@@ -1,24 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-            android:id="@+id/btnStart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Start"/>
-    <Button
-            android:id="@+id/btnStop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnStart"
-            android:text="Stop"/>
-    <Button
-            android:id="@+id/btnTest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnStop"
-            android:text="Test"/>
+    <RelativeLayout
+            android:id="@+id/layControl"
+            android:layout_width="match_parent" android:layout_height="40dip">
+        <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/btnStart"
+                android:gravity="start|center_vertical"
+                android:paddingStart="4dip"
+                android:paddingEnd="4dip"
+                android:text="@string/text_server_not_started"
+        />
+        <Button
+                android:id="@+id/btnStart"
+                android:layout_width="80dip" android:layout_height="match_parent"
+                android:text="@string/btn_start"
+                android:layout_toStartOf="@+id/btnTest"
+        />
+        <Button
+                android:id="@+id/btnTest"
+                android:layout_width="80dip" android:layout_height="match_parent"
+                android:text="@string/btn_test"
+                android:layout_alignParentEnd="true"
+        />
+
+    </RelativeLayout>
+
+    <TextView
+            android:id="@+id/tvOutputTitle"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_below="@+id/layControl"
+            android:text="@string/text_output"
+            android:layout_marginTop="8dip"
+            android:padding="4dip"
+    />
+    <View
+            android:id="@+id/vOutput"
+            android:layout_width="match_parent" android:layout_height="1dip"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@+id/tvOutputTitle"
+    />
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_below="@+id/vOutput"
+                android:scrollbars="none">
+        <TextView
+                android:id="@+id/tvOutput"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:paddingStart="8dip"
+                android:paddingEnd="8dip"
+        />
+    </ScrollView>
+
 </RelativeLayout>
 

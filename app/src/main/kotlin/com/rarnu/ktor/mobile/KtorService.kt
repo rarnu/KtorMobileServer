@@ -29,6 +29,7 @@ class KtorService: Service() {
     override fun onCreate() {
         super.onCreate()
         goForeground()
+        println("Server starting...")
 
         if (engine == null) {
             engine = embeddedServer(Netty, 8080, module = Application::module)
@@ -37,10 +38,12 @@ class KtorService: Service() {
     }
 
     override fun onDestroy() {
+        println("Server stopping...")
         if (engine != null) {
             thread {
                 engine?.stop(1, 1, TimeUnit.SECONDS)
                 engine = null
+                println("Server Stopped.")
             }
         }
         stopForeground(true)
@@ -58,6 +61,5 @@ class KtorService: Service() {
             startForeground(N_NOTIFY_ID, notification)
         }
     }
-
 
 }
